@@ -1,0 +1,68 @@
+.miVBox {
+    -fx-background-image: url('/Babble%20Hub.png');
+    -fx-background-size: cover;
+    -fx-border-radius: 60px;
+    -fx-background: #FFF;
+
+}
+
+.profile-layout{
+    -fx-background-color: #EBC95E;
+    -fx-background-radius: 50 50 50 50;
+}
+
+.button{
+    -fx-background-color: #EBC95E;
+    -fx-background-radius: 50;
+}
+
+.white-background{
+    -fx-background-color: #fff;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.most-contacted-layout{
+    -fx-background-radius: 0 50 50 50;
+}
+
+.light-gray-background{
+    -fx-background-color: #f3f3f3;
+}
+.root {
+    -fx-background-color: transparent; /* Establecer el fondo del BorderPane como transparente */
+}
+
+/* Clase de fondo de imagen para el BorderPane */
+
+/* Aplicar la clase de fondo de imagen al BorderPane */
+.white-background {
+    -fx-background-color: transparent;
+}
+.profile-layout{
+    -fx-background-color: #EBD8ED;
+    -fx-background-radius: 50 50 50 50;
+}
+
+.button{
+    -fx-background-color: #78cbc1;
+    -fx-background-radius: 50;
+}
+
+.white-background{
+    -fx-background-color: #fff;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.most-contacted-layout{
+    -fx-background-radius: 0 50 50 50;
+}
+
+.light-gray-background{
+    -fx-background-color: #f3f3f3;
+}

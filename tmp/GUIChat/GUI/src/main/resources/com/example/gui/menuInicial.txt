@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.shape.Line?>
+<VBox prefHeight="696.0" prefWidth="314.0"
+      style="-fx-background-color:#FFD5D5;"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.gui.MenuInicialController">
+
+
+    <ToolBar style="-fx-background-color:#F9A8A8;">
+        <Button fx:id="BotonPerfil" maxHeight="30" maxWidth="100" minHeight="30" minWidth="100" onAction="#handleNuevo" style="-fx-background-color: #F89494;">
+            <graphic>
+                <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Perfil" />
+            </graphic>
+        </Button>
+
+        <Region prefWidth="5" />
+
+        <Button fx:id="BotonNuevo" maxHeight="30" maxWidth="100" minHeight="30" minWidth="100" onAction="#handleNuevo" style="-fx-background-color: #F89494;">
+            <graphic>
+                <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Nuevo" />
+            </graphic>
+        </Button>
+
+        <Region prefWidth="30" />
+
+        <Button fx:id="BotonAjustes" maxHeight="30" maxWidth="100" minHeight="30" minWidth="100" onAction="#handleAjustes" style="-fx-background-color: #F89494;">
+            <graphic>
+                <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Ajustes" />
+            </graphic>
+        </Button>
+
+        <Region prefWidth="30" />
+
+        <Button fx:id="BontonOpciones" maxHeight="30" maxWidth="100" minHeight="30" minWidth="100" onAction="#handleMas" style="-fx-background-color: #F89494;">
+            <graphic>
+                <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="..." />
+            </graphic>
+        </Button>
+
+        <Region prefWidth="30" />
+
+        <Button fx:id="BontonSalir" maxHeight="30" maxWidth="100" minHeight="30" minWidth="100" onAction="#handleSalir" style="-fx-background-color: #F89494;">
+            <graphic>
+                <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Salir" />
+            </graphic>
+        </Button>
+    </ToolBar>
+    <Separator/>
+
+    <HBox>
+        <VBox>
+            <!-- FAVORITOS BOX -->
+            <AnchorPane prefHeight="150.0" prefWidth="210.0">
+                <children>
+                    <VBox> <!-- FAVORITOS -->
+                        <ToolBar fx:id="Toolbar_Favoritos" prefWidth="210" style="-fx-background-color:#F9A8A8; -fx-font-weight: bold;">
+                            <HBox>
+                                <Text style="-fx-font-size: 16px;" text="Favoritos   " />
+                                <Region prefWidth="53" />
+                                <Button onAction="#BottonBuscar_Contactos" style="-fx-background-color: #F89494;" text="Buscar" />
+                            </HBox>
+                        </ToolBar>
+
+                        <ScrollPane prefHeight="163" prefWidth="50" style="-fx-background-color: #FFB4B4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+                            <content>
+                                <VBox style="-fx-background-color: #FFB4B4; -fx-background: #FFB4B4;"> <!-- color de fondo de los botones-->
+                                    <Separator />
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color:#FFB4B4; -fx-pref-width: 195px;" text="Angela Melendez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Segundo_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Omar Perez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Segundo_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Ojjjjjjjjj" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Tercer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Jackelyn Fernandez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="persona 1" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="persona 2" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="persona 3" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="persona 4" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho"
+                                            style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="persona 5" />
+                                    <Separator />
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+                </children>
+            </AnchorPane>
+
+            <!-- CONTACTOS BOX -->
+            <AnchorPane prefHeight="150.0" prefWidth="210.0">
+                <children>
+                    <VBox> <!-- CONTACTOS -->
+                        <ToolBar fx:id="Toolbar_Contactos" prefWidth="210" style="-fx-background-color:#F9A8A8; -fx-font-weight: bold;">
+                            <HBox>
+                                <Text style="-fx-font-size: 16px;" text="Contactos   " />
+                                <Region prefWidth="48" />
+
+                                <Button onAction="#BottonBuscar_Contactos" style="-fx-background-color: #F89494;" text="Buscar" />
+                            </HBox>
+                        </ToolBar>
+
+                        <ScrollPane prefHeight="166" prefWidth="100" style="-fx-background-color: #FFB4B4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+                            <content>
+                                <!-- Contenido del ScrollPane -->
+                                <VBox style="-fx-background-color: #FFB4B4; -fx-background: #FFB4B4;">
+
+                                    <Separator />
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="HESTYBALYZZZZ Melendez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Omar Perez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Jackelyn Fernandez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Persona 1" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Persona 2" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Persona 3" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="persona 1" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="persona 2" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="persona 3" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="persona 4" />
+                                    <Separator />
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+                </children>
+            </AnchorPane>
+
+            <!-- GRUPOS BOX -->
+            <AnchorPane prefHeight="150.0" prefWidth="210.0">
+                <children>
+                    <VBox> <!-- CONTACTOS -->
+                        <ToolBar fx:id="Toolbar_Grupos" prefWidth="210" style="-fx-background-color:#F9A8A8; -fx-font-weight: bold;">
+                            <HBox>
+                                <Text style="-fx-font-size: 16px;" text="Grupos   " />
+                                <Region prefWidth="68" />
+
+                                <Button onAction="#BottonBuscar_Contactos" style="-fx-background-color: #F89494;" text="Buscar" />
+                            </HBox>
+                        </ToolBar>
+
+                        <ScrollPane prefHeight="165" prefWidth="100" style="-fx-background-color: #FFB4B4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+                            <content>
+                                <!-- Contenido del ScrollPane -->
+                                <VBox style="-fx-background-color: #FFB4B4; -fx-background: #FFB4B4;">
+
+                                    <Separator />
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="HESTYBALYZZZZ Melendez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Omar Perez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Jackelyn Fernandez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="HESTYBALYZZZZ Melendez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Omar Perez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Jackelyn Fernandez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Persona 1" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="HESTYBALYZZZZ Melendez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Omar Perez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Jackelyn Fernandez" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Persona 1" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho"
+                                            style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Persona 1" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Persona 2" />
+                                    <Separator />
+
+                                    <Button alignment="CENTER_LEFT" onAction="#Botton_Primer_Contacto" onContextMenuRequested="#handleClicDerecho" style="-fx-background-color: #FFB4B4; -fx-pref-width: 195px;" text="Persona 3" />
+                                    <Separator />
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+                </children>
+            </AnchorPane>
+        </VBox>
+
+        <!-- AREA - CHATS RECIENTES -->
+        <VBox>
+            <ToolBar  prefWidth="410" style="-fx-background-color:#F9A8A8; -fx-font-weight: bold;">
+                <HBox>
+                    <Text style="-fx-font-size: 16px;" text="Chats recientes   " />
+                    <Region prefWidth="138" />
+
+                    <Button onAction="#BottonBuscar_Contactos" style="-fx-background-color: #F89494;" text="Buscar" />
+                </HBox>
+            </ToolBar>
+            <VBox prefWidth="210">
+                <ListView fx:id="ListView" prefWidth="100" prefHeight="600" style="-fx-font-size: 14px; -fx-background-color: #F89494;"/>
+
+                <Separator/>
+            </VBox>
+        </VBox>
+
+    </HBox>
+
+</VBox>

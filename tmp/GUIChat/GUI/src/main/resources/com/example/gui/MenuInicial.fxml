@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1310.0" styleClass="miVBox" stylesheets="@estilos_MenuInicial.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.MenuInicialController">
+    <top>
+        <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="1310.0" BorderPane.alignment="CENTER_RIGHT">
+            <padding>
+                <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
+            </padding>
+
+            <Button fx:id="Bonton_Minimizar" maxHeight="25" maxWidth="25" minHeight="25" minWidth="25" onAction="#Minimizar_encabezado" style="-fx-background-color: #f8e794; -fx-border-radius: 10;">
+            </Button>
+
+            <Button fx:id="Boton_Maximizar" maxHeight="25" maxWidth="25" minHeight="25" minWidth="25" onAction="#MaximizarVentana" style="-fx-background-color: #9de387; -fx-border-radius: 10;">
+            </Button>
+
+            <Button fx:id="Boton_Salir" maxHeight="25" maxWidth="25" minHeight="25" minWidth="25" onAction="#Salir_encabezado" style="-fx-background-color: #d27870; -fx-border-radius: 10;">
+            </Button>
+        </HBox>
+    </top>
+    <left>
+        <!--" recuadro de logo  "-->
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="320.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER" prefHeight="628.0" prefWidth="323.0" style="-fx-background-radius: 50,50,50,50;" styleClass="profile-layout" stylesheets="@estilos_MenuInicial.css">
+                    <children>
+                        <ImageView fitHeight="286.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@/logo Babble Hub.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="Label_user" alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="287.0" text="USERNAME" textFill="WHITE">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font name="Corbel Bold" size="31.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="Label_email" alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="262.0" text="EMAIL" textFill="WHITE">
+                            <font>
+                                <Font name="Corbel Bold" size="26.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </opaqueInsets>
+                </VBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
+        </VBox>
+    </left>
+    <center>
+        <HBox prefHeight="628.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox fx:id="Espacio_Contactos" prefHeight="627.0" prefWidth="950.0" style="-fx-background-radius: 50 50 50 50; -fx-background-color: #DEF0F1">
+                    <children>
+                        <HBox prefHeight="30.0" prefWidth="600.0">
+                            <children>
+                                <Label prefHeight="30.0" prefWidth="715.0" text="Contactos">
+                                    <font>
+                                        <Font name="Corbel Bold" size="40.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="60.0" right="10.0" top="30" />
+                                    </padding>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Label>
+                                <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="200.0" text="Buscar contacto">
+                                    <font>
+                                        <Font name="Corbel Bold" size="18.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="101.0" prefWidth="930.0">
+                        </HBox>
+                        <HBox style="-fx-background-radius: 0 0 0 0; -fx-background-color: #78cbc1">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="52.0" prefWidth="445.0" text="Nombre">
+                                    <font>
+                                        <Font name="Corbel Bold" size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="60.0" right="10.0" top="10.0" />
+                                    </padding>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </Label>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </HBox.margin>
+                        </HBox>
+                    </children>
+                    <opaqueInsets>
+                        <Insets top="30.0" />
+                    </opaqueInsets>
+
+                    <HBox.margin>
+                        <Insets bottom="30.0" right="20.0" top="30.0" />
+                    </HBox.margin>
+
+                    <ScrollPane prefHeight="278.0" prefWidth="827.0" styleClass="transparent" stylesheets="@estilos_MenuInicial.css">
+                        <content>
+                            <VBox fx:id="ContactLayout" minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="914.0">
+                                <children>
+                                    <HBox>
+                                        <VBox prefWidth="600">
+                                            <ListView fx:id="ListView" minWidth="913.0" prefHeight="332.0" prefWidth="913.0" style="-fx-font-size: 14px; -fx-background-color: #F89494;" />
+                                            <Separator />
+                                        </VBox>
+                                    </HBox>
+                                </children>
+                            </VBox>
+                        </content>
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                    </ScrollPane>
+                </VBox>
+
+            </children>
+        </HBox>
+    </center>
+</BorderPane>
