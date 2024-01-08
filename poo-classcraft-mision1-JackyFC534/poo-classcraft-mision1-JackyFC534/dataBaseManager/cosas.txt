@@ -1,0 +1,38 @@
+leer la ruta ingresada - USE $PATH$
+
+    método para mostrar todos una lista de los csv - SHOW TABLES
+
+    método para crear nuevo archivo respetando la sintaxis - CREATE TABLE
+        dar como resultado el path ingresado con el nombre asignado - $PATH$/Alumnos.csv
+        debe tener las columnas de la estructura especificada - id,nombre,app,apm,edad
+
+    método para eliminar un archivo - DROP TABLE
+        validar que ese es el archivo que desea eliminar
+
+    método para insertar una nueva línea a un archivo respetando sintaxis - INSERT
+
+    método para borrar una linea o varias respetando WHERE - DELETE
+        DELETE FROM table_name WHERE condition;
+        --- respetar el uso de AND y OR
+            DELETE
+            FROM Alumnos
+            WHERE (app='González' AND apm <> 'Hernández') OR id=25;
+            --- Sólo borraría a los alumnos con apellidos González Hernández o aquél con id=25.
+
+    metodo para actualizar datos por columnas o conjunto de fila - UPDATE
+        --- UPDATE table_name
+            SET column1 = value1, column2 = value2, ...
+            WHERE condition;
+            --- **NOTA: la sección de WHERE condition respeta como en DELETE.
+
+    metodo para obtener datos de archivos o de tablas
+        --- SELECT [*] | select_expr [, select_expr] ... [as alias]
+        [FROM table_reference
+        [WHERE where_condition]
+
+---------------------
+- Hacer test de todo para probar el completo funcionamiento del sistema
+- Reporte con explicacion del sistema, explicacion a detalle tambien de las pruebas unitarias
+
+
+USE desktop/docs/txt
