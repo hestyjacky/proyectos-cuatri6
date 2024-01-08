@@ -1,0 +1,33 @@
+/* estilos.css */
+
+.miVBox {
+    -fx-background-image: url('/Babble%20Hub.png');
+    -fx-background-size: cover;
+}
+
+.CorreoUser,
+.ContrasenaUser{
+    -fx-background-color: #5BAAAD; /* Color de fondo */
+    -fx-border-color: #2A5052; /* Color del borde */
+    -fx-border-width: 2px; /* Ancho del borde */
+    -fx-border-radius: 60px; /* Radio de la esquina del borde */
+    -fx-background-radius: 60px; /* Radio de la esquina del fondo */
+    -fx-padding: 5px; /* Relleno interno */
+}
+
+.CorreoUser:focus, 
+.ContrasenaUser:focus{
+    -fx-border-color: #5BAAAD; /* Color del borde cuando el TextField está enfocado */
+}
+
+.CorreoUser .text,
+.CorreoUser::input {
+    -fx-fill: rgb(255, 255, 255); /* Color del texto */
+    -fx-font-weight: bold; /* Fuente en negrita */
+}
+
+.ContrasenaUser .text,
+.ContrasenaUser::input {
+    -fx-fill: rgb(255, 255, 255); /* Color del texto */
+    -fx-font-weight: bold; /* Fuente en negrita */
+}

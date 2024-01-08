@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER"
+      styleClass="miVBox"
+      xmlns="http://javafx.com/javafx/17.0.2-ea"
+      style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: transparent;"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.InicioController">
+
+    <VBox fx:id="Ventana"
+    styleClass="Ventana">
+        <padding>
+            <Insets bottom="30.0" left="20.0" right="20.0" top="10.0" />
+        </padding>
+
+        <VBox>
+            <HBox alignment="TOP_RIGHT"  spacing="4">
+                <Button fx:id="BontonMinimizar"
+                        maxHeight="30" maxWidth="30"
+                        minHeight="30" minWidth="30"
+                        onAction="#handleSalir"
+                        style="-fx-background-color: #F89494;">
+                    <graphic>
+                        <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="mini" />
+                    </graphic>
+                </Button>
+                <Button fx:id="BontonSalir"
+                        maxHeight="30" maxWidth="30"
+                        minHeight="30" minWidth="30"
+                        onAction="#handleSalir"
+                        style="-fx-background-color: #F89494;">
+                    <graphic>
+                        <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="X" />
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+
+
+
+
+        <HBox maxHeight="430.0" maxWidth="603.0"
+              minHeight="330.0" minWidth="450.0"
+              prefHeight="330.0" prefWidth="603.0"
+              style="-fx-background-color: #FFF3E3; -fx-background-radius: 80">
+            <padding>
+                <Insets bottom="10.0" left="30.0" right="20.0" top="25.0" />
+            </padding>
+            <ImageView fitHeight="280.0" fitWidth="216.0">
+                <image>
+                    <Image url="@/logo Babble Hub.png" />
+                </image>
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </ImageView>
+
+            <VBox>
+                <GridPane alignment="center" hgap="15" vgap="5">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    <Text fx:id="textFill" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="¡ Ingrese sus datos !" GridPane.columnSpan="2" GridPane.rowIndex="0">
+                        <GridPane.halignment>RIGHT</GridPane.halignment>
+                        <GridPane.margin>
+                            <Insets right="20.0" />
+                        </GridPane.margin>
+                    </Text>
+
+                    <!-- Label style="-fx-font-size: 14px;" text="Correo:" GridPane.columnIndex="0" GridPane.rowIndex="1" /  -->
+
+                    <TextField fx:id="CorreoUser" alignment="CENTER" promptText="EMAIL" style="-fx-font-size: 14px; -fx-font-weight: bold;" styleClass="ContrasenaUser" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+                    <!--Label style="-fx-font-size: 14px;" text="Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="2" / -->
+
+
+                    <TextField fx:id="ContrasenaUser" alignment="CENTER" promptText="PASSWORD" style="-fx-font-size: 14px; -fx-font-weight: bold;" styleClass="ContrasenaUser" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                    <VBox.margin>
+                        <Insets left="60.0" />
+                    </VBox.margin>
+                </GridPane>
+
+
+                <Label fx:id="welcomeText" prefHeight="18.0" prefWidth="202.0" style="-fx-font-size: 12px; -fx-font-weight: bold;">
+                    <VBox.margin>
+                        <Insets left="80.0" />
+                    </VBox.margin></Label>
+                <HBox alignment="BOTTOM_CENTER" spacing="20.0">
+                    <Button onAction="#SignUp_ButtonClick" style="-fx-font-size: 14px; -fx-background-color: #FFB4B4;" text="Sign up">
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin></Button>
+                    <Button onAction="#LogIn_ButtonClick" style="-fx-font-size: 14px; -fx-background-color: #FFB4B4;" text="Log-in" />
+                    <padding>
+                        <Insets left="50.0" top="20.0" />
+                    </padding>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="50.0" />
+                </padding>
+            </VBox>
+
+        </HBox>
+    </VBox>
+
+</VBox>

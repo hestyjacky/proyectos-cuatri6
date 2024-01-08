@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.gui.ChatIndController"
+            prefHeight="596.0" prefWidth="214.0">
+
+    <ToolBar style="-fx-background-color: #F9A8A8;" >
+        <Text text="Contacto 1" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+
+        <Region prefWidth="340" />
+        <Button fx:id="BontonMás" maxHeight="30" maxWidth="100"
+                minHeight="30" minWidth="100"
+                onAction="#handleMas" style="-fx-background-color: #F89494;">
+            <graphic>
+                <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="..." />
+            </graphic>
+        </Button>
+        <Button fx:id="BontonSalir" maxHeight="30" maxWidth="100"
+                minHeight="30" minWidth="100"
+                onAction="#handleSalir" style="-fx-background-color: #F89494;">
+            <graphic>
+                <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Salir" />
+            </graphic>
+        </Button>
+    </ToolBar>
+
+    <AnchorPane prefHeight="596.0" prefWidth="214.0" style="-fx-background-color: #F89494;">
+        <VBox prefHeight="596.0" prefWidth="214.0">
+            <Separator/>
+            <Label text="HOLA" style="-fx-font-size: 16px;"/>
+
+            <Button text="PRUEBA" onAction="pruebaMas"/>
+
+        </VBox>
+    </AnchorPane>
+
+
+
+</VBox>
