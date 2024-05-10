@@ -11,58 +11,59 @@ public class SQLCommand {
     public String[] columnNames;
     public String[] selectedColumns;
     public SQLCommand(){
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder commandBuilder = new StringBuilder();
-        boolean multiLineInput = false; // Bandera para controlar comandos multilinea
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); // es para leer la linea
+        StringBuilder commandBuilder = new StringBuilder(); // una variable para acumular lo que este en terminal creo
+        boolean multiLineInput = false; // Bandera para controlar comandos en varias lineas
 
-        System.out.print("-- ");
+        System.out.print("-- "); // señal para ingresar comandos al sistema
 
+        // para que funcione siempre debes de colocar use Ruta-Absoluta ;
         try {
             while (true) {
                 while (true){
-                    String line = reader.readLine();
-                    commandBuilder.append(line).append(" ");
+                    String line = reader.readLine(); // leera la linea que se introdujo en la terminal
+                    commandBuilder.append(line).append(" "); // coloca lo de la terminal + un espacio por si introduce mas txt en otra linea
 
-                    if (line.trim().endsWith(";")) {
-                        // El comando está completo y no es una entrada multilinea
-                        String command = commandBuilder.toString().trim();
+                    if (line.trim().endsWith(";")) { // analiza si tiene ; para reproducir el comando, sino q no haga nada
+                        String command = commandBuilder.toString().trim(); // entonces la linea es aquel que tenga ; y se almacenará en command
 
-                        if (command.equalsIgnoreCase("exit;")) { return;}
+                        if (command.equalsIgnoreCase("exit;")) { return;} // si tiene exit; no hace nada y termina el programa
 
-                        if (command.toUpperCase().startsWith("USE ")) {
-                            String newPath = command.substring(4).trim();
-                            this.USE(newPath);
+                        if (command.toUpperCase().startsWith("USE ")) { // lee el comando, convierte a mayusculas para q no afecte si esta mayus y mins, y si empieza con use
+                            String newPath = command.substring(4).trim(); // establece que la ruta a trabajar va a ser la q se introdujo despues de "use "
+                            this.USE(newPath); // mandar la ruta a la funcion
                             // Procesar el comando USE y establecer la carpeta de trabajo
-                        } else if (command.toUpperCase().startsWith("SHOW TABLES;")) { SHOW();
+                        } else if (command.toUpperCase().startsWith("SHOW TABLES;")) { SHOW(); // lee el comando, pasa a mayus y si empieza con show tables;
                             // Mostrar la lista de tablas en la carpeta de trabajo
-                        } else if (command.toUpperCase().startsWith("CREATE")) { CREATE(command);
+                        } else if (command.toUpperCase().startsWith("CREATE")) { CREATE(command); // lee, mayus y si empieza con create, hará la tabla q se le introdujo
                             // Procesar el comando CREATE TABLE
-                        } else if (command.toUpperCase().startsWith("DROP")) {
-                            String tableName = command.substring(10, command.length() - 1).trim(); DROP(tableName);
+                        } else if (command.toUpperCase().startsWith("DROP")) { // lee, mayus y si empieza con drop
+                            String tableName = command.substring(10, command.length() - 1).trim(); DROP(tableName); // almacena el nombre de la tabla despues de "drop table "
                             // Procesar el comando DROP TABLE
-                        } else if (command.toUpperCase().startsWith("INSERT INTO")) { INSERT(command);
+                        } else if (command.toUpperCase().startsWith("INSERT INTO")) { INSERT(command); // lee, mayus y si empieza con insert into, manda toda la linea a la funcion
                             // Procesar el comando INSERT INTO
-                        } else if (command.toUpperCase().startsWith("SELECT")) { SELECT(command);
+                        } else if (command.toUpperCase().startsWith("SELECT")) { SELECT(command); // lee, mayus y si empieza con select, manda el comando a la funcion
                             // procedimiento normal
-                        } else if (command.toUpperCase().startsWith("UPDATE")) {
+                        } else if (command.toUpperCase().startsWith("UPDATE")) { // lee, mayus y si tiene update, no hace nada porque no me funcionaba lol
                             // Procesar consultas UPDATE
                             //updateData(command);
                             System.out.println("En proceso...");
-                        } else if (command.toUpperCase().startsWith("DELETE")) {
+                        } else if (command.toUpperCase().startsWith("DELETE")) { // lee, mayus y si tiene delete, no hace nada porque no me funcionaba lol
                             // Procesar el comando DELETE
                             //deleteData(command);
                             System.out.println("En proceso...");
-                        } else {
+                        } else { // si no es ninguno de los comandos anteriores, puede ser que
+                            // este mal escrito, sea un comando que no esta terminado, o que no se le ha colocado la ruta de la BD
                             System.out.println("Comando no válido. " +
                                     "\n'exit' para salir, o 'USE $PATH$' para establecer la ruta de trabajo.");
                         }
                         // Restablecer el StringBuilder y la bandera para el próximo comando
                         commandBuilder.setLength(0);
                         multiLineInput = false;
-                        System.out.print("-- "); // Volver a mostrar el "SQL>" para el siguiente comando
+                        System.out.print("-- "); // Volver a mostrar el "-- " para el siguiente comando
                     } else {
-                        // El comando se extiende en múltiples líneas
-                        multiLineInput = true;
+                        // si el comando se extiende en múltiples líneas
+                        multiLineInput = true; // realmente no se para q es
                     }
                 }
             }
@@ -71,50 +72,52 @@ public class SQLCommand {
             System.err.println(" Fallo con -> " + e.getMessage());
         }
     }
-    public String currentDatabase = "";
+    public String currentDatabase = ""; // existe la variable para la BD a usar
     public static void main(String[] args) {
         new SQLCommand();
-    }
+    } // una vez que se corre, da inicio a la funcion para analizar los comandos
+
     public void USE(String path) {
         // Eliminar el carácter ';' si está presente en la ruta
         path = path.trim(); // Eliminar espacios en blanco alrededor
-        if (path.endsWith(";")) {
-            path = path.substring(0, path.length() - 1).trim();
+        if (path.endsWith(";")) { // ruta;
+            path = path.substring(0, path.length() - 1).trim(); // aqui quita el ; dejando nada mas ruta
         }
 
-        File folder = new File(path);
+        File folder = new File(path); // para poder leer la carpeta q le pusimos en la ruta
 
-        if (!folder.exists()) {
+        if (!folder.exists()) { // si la carpeta introducida no existe
             boolean created = false;
             if (!created) {
                 System.out.println("Error al entrar, la carpeta de trabajo "+ path + " NO EXISTE.");
                 return;
             }
         }
+        // si pasa por los filtros anteriores, entonces establece q la ruta es la introducida
         currentDatabase = path;
         System.out.println("Usando la base de datos en: " + currentDatabase);
     }
     public void SHOW() {
-        if (currentDatabase.isEmpty()) {
+        if (currentDatabase.isEmpty()) { // vuelve a checar por si acaso, si la ruta existe
             System.out.println("Error: Ruta de trabajo no especificada.");
             return;
         }
 
         File folder = new File(currentDatabase);
 
-        if (!folder.exists() || !folder.isDirectory()) {
+        if (!folder.exists() || !folder.isDirectory()) { // si la carpeta no existe y es un no directorio
             System.out.println("Error: La carpeta de trabajo especificada no existe o no es una carpeta.");
             return;
         }
 
-        File[] files = folder.listFiles();
+        File[] files = folder.listFiles(); // si pasa lo anterior, vamos a colocar los nombres de los archivos
 
-        if (files != null && files.length > 0) {
+        if (files != null && files.length > 0) { // leera todos los nombres hasta q llegue a donde no haya mas carpetas dentro de esa BD
             System.out.println("Tablas disponibles en la base de datos '" + currentDatabase + "':");
 
-            for (File file : files) {
-                if (file.isFile() && file.getName().toLowerCase().endsWith(".csv")) {
-                    System.out.println(file.getName().replace(".csv", ""));
+            for (File file : files) { // va a recorrer la lista de los archivos
+                if (file.isFile() && file.getName().toLowerCase().endsWith(".csv")) { // si es un archivo q tiene .csv
+                    System.out.println(file.getName().replace(".csv", "")); // entonces va a poner en terminal el puro nombre sin .csv
                 }
             }
         } else {
@@ -125,30 +128,37 @@ public class SQLCommand {
     use /home/jacky/Desktop/poo-classcraft-mision1-JackyFC534/dataBaseManager/src/main/java/edu/upvictoria/fpoo/CSVDirectory;
      */
     public void CREATE(String query) {
+        // estructura base para poder crear una tabla
         Pattern pattern = Pattern.compile("CREATE[\\s\\S]*?TABLE\\s+(\\w+)\\s*\\(([^;]+);\\)?", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(query);
+        Matcher matcher = pattern.matcher(query); //toma el comando y compara si es igual a la estructura anterior
 
-        if (matcher.find()) {
-            String tableName = matcher.group(1).trim();
-            String columnsPart = matcher.group(2).trim();
+        if (matcher.find()) { // si son iguales entonces
+            String tableName = matcher.group(1).trim(); // toma el nombre
+            String columnsPart = matcher.group(2).trim(); // toma las columnas introducidas
 
-            String[] columnDefinitions = columnsPart.split(",");
-            List<String> columnNames = new ArrayList<>();
+            String[] columnDefinitions = columnsPart.split(","); // va a tomar las columnas y las va a separar por ,
+            List<String> columnNames = new ArrayList<>(); // para almacenar los nombres
 
-            for (String columnDefinition : columnDefinitions) {
-                String[] columnInfo = columnDefinition.trim().split("\\s+");
-                if (columnInfo.length < 2) {
+            for (String columnDefinition : columnDefinitions) { // por cada columna encontrada...
+                String[] columnInfo = columnDefinition.trim().split("\\s+"); // separa las cosas por los espacios q tenga
+                /* por ejemplo si en las columnas hay
+n_socio INT NOT NULL PRIMARY KEY,
+f_regreso INT NOT NULL PRIMARY KEY,
+                    primero separa por , y ya teniendo eso separa por los espacios q tenga
+                */
+
+                if (columnInfo.length < 2) { // tiene q haber columnas para crear la tabla
                     System.out.println("Error: Sintaxis incorrecta para definición de columna.");
                     return;
                 }
 
-                String columnName = columnInfo[0];
-                if (columnName.contains(" ") || columnName.contains(",")) {
+                String columnName = columnInfo[0]; // siempre el nombre de la columna es la primera posición
+                if (columnName.contains(" ") || columnName.contains(",")) { // si sigue teniendo espacios y , entonces algo esta mal
                     System.out.println("Error: Nombre de columna no válido: " + columnName);
                     return;
                 }
 
-                columnNames.add(columnName);
+                columnNames.add(columnName); // almacena los nombres de las columnas nada más (n_socio, f_regreso)
             }
 
             String tableFilePath = currentDatabase + File.separator + tableName + ".csv";
